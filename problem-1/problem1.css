@@ -1,21 +1,28 @@
 .container {
-    display: flex; 
-    flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.small {
+  border-color: black;
+  border: solid 0.5px;
+}
+
+.col {
+  border-color: black;
+  border: solid 1px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (max-width: 960px) {
+  .container {
+      grid-template-columns: repeat(2, 2fr);
   }
-  
-  .cell {
-    flex-grow: 0.25;
-    border: 1px solid;
-  }
-  
-  @media (max-width: 960px) {
-    .cell {
-      width: calc(50% - 2px)
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .cell {
-      width: calc(100% - 2px)
-    }
-  }
+}
+
+@media (max-width: 640px) {
+  .container {
+      grid-template-columns: repeat(1, 1fr);
+  } 
+}
